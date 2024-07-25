@@ -61,11 +61,7 @@
             <artifactId>ppxoj-backend-model</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
-        <dependency>
-            <groupId>com.ppx</groupId>
-            <artifactId>ppxoj-backend-service-client</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
+
     </dependencies>
 
     <build>

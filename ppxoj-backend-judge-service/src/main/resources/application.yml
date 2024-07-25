@@ -21,10 +21,10 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/ppxoj
     username: root
-    password: 085258
+    password: '085258'
   # Redis 配置
   redis:
-    database: 1
+    database: 3
     host: localhost
     port: 6379
     timeout: 5000
@@ -33,11 +33,16 @@ spring:
     multipart:
       # 大小限制
       max-file-size: 10MB
+  # Nacos 配置
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
 server:
   address: 0.0.0.0
   port: 8104
   servlet:
-    context-path: /api
+    context-path: /api/judge
     # cookie 30 天过期
     session:
       cookie:

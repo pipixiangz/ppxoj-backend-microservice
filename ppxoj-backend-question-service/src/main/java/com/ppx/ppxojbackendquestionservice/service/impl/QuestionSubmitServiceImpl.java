@@ -19,8 +19,9 @@ import com.ppx.ppxojbackendmodel.model.vo.QuestionSubmitVO;
 import com.ppx.ppxojbackendquestionservice.mapper.QuestionSubmitMapper;
 import com.ppx.ppxojbackendquestionservice.service.QuestionService;
 import com.ppx.ppxojbackendquestionservice.service.QuestionSubmitService;
-import com.ppx.ppxojbackendserviceclient.service.JudgeService;
-import com.ppx.ppxojbackendserviceclient.service.UserService;
+
+import com.ppx.ppxojbackendserviceclient.service.JudgeFeignClient;
+import com.ppx.ppxojbackendserviceclient.service.UserFeignClient;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.context.annotation.Lazy;
@@ -44,11 +45,11 @@ public class QuestionSubmitServiceImpl extends ServiceImpl<QuestionSubmitMapper,
     private QuestionService questionService;
 
     @Resource
-    private UserService userService;
+    private UserFeignClient userService;
 
     @Resource
     @Lazy // 懒加载, 防止循环调用
-    private JudgeService judgeService;
+    private JudgeFeignClient judgeService;
 
     /**
      * 提交题目
