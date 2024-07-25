@@ -17,6 +17,7 @@ import com.ppx.ppxojbackendmodel.model.enums.QuestionSubmitLanguageEnum;
 import com.ppx.ppxojbackendmodel.model.enums.QuestionSubmitStatusEnum;
 import com.ppx.ppxojbackendmodel.model.vo.QuestionSubmitVO;
 import com.ppx.ppxojbackendquestionservice.mapper.QuestionSubmitMapper;
+import com.ppx.ppxojbackendquestionservice.rabbitmq.MyMessageProducer;
 import com.ppx.ppxojbackendquestionservice.service.QuestionService;
 import com.ppx.ppxojbackendquestionservice.service.QuestionSubmitService;
 
@@ -50,6 +51,9 @@ public class QuestionSubmitServiceImpl extends ServiceImpl<QuestionSubmitMapper,
     @Resource
     @Lazy // 懒加载, 防止循环调用
     private JudgeFeignClient judgeService;
+
+    @Resource
+    private MyMessageProducer myMessageProducer; // 引入一个消费者
 
     /**
      * 提交题目
@@ -89,9 +93,12 @@ public class QuestionSubmitServiceImpl extends ServiceImpl<QuestionSubmitMapper,
         }
         // 执行判题服务
         Long questionSubmitId = questionSubmit.getId();
-        CompletableFuture.runAsync(() -> {
-            judgeService.doJudge(questionSubmitId);
-        });
+        // rabbitmq 发送消息
+        myMessageProducer.sendMessage("code_exchange", "my_routingKey", String.valueOf(questionSubmitId));
+
+//        CompletableFuture.runAsync(() -> {
+//            judgeService.doJudge(questionSubmitId);
+//        });
         return questionSubmitId;
     }
 
