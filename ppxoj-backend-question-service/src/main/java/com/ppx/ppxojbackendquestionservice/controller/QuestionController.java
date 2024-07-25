@@ -50,9 +50,6 @@ public class QuestionController {
     @Resource
     private QuestionSubmitService questionSubmitService;
 
-    @Value("${spring.datasource.password}")
-    private String password;
-
     // 用于将Java对象转换为JSON格式的字符串
     private final static Gson GSON = new Gson();
 
@@ -167,9 +164,6 @@ public class QuestionController {
         if (id <= 0) {
             throw new BusinessException(ErrorCode.PARAMS_ERROR);
         }
-
-        log.debug("!!!!!!!!!!!!!!!!!!!!!password: {}", password);
-        System.out.println("!!!!!!!!!!!!!!!!!!!!!password: " + password);
         Question question = questionService.getById(id);
         if (question == null) {
             throw new BusinessException(ErrorCode.NOT_FOUND_ERROR);
