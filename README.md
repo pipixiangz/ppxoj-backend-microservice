@@ -88,7 +88,7 @@ Spring Cloud Gateway was used to aggregate and route service interfaces, protect
 To protect internal service interfaces, a unified inner prefix was set for interface paths. A custom GlobalFilter (global request interceptor) in the gateway was implemented to detect and intercept internal requests, centralizing permission verification.
 
 ### Asynchronous Judging Operations
-To prevent prolonged execution times for judging operations, the system employs an asynchronous approach. The problem service sends the user submission ID to a RabbitMQ message queue, forwarding it via a Direct exchange to the judging queue, where the judging service consumes it and updates the submission status asynchronously. Compared to the synchronous approach, the response time was reduced from 5 seconds to 2 seconds.
+To prevent prolonged execution times for judging operations, the system employs an asynchronous approach. The problem service sends the user submission ID to a RabbitMQ message queue, forwarding it via a Direct exchange to the judging queue, where the judging service consumes it and updates the submission status asynchronously. Compared to the synchronous approach, the response time was reduced from 3 seconds to 1 seconds.
 
 
 
