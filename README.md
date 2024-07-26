@@ -1,5 +1,5 @@
 # 皮皮码来判判 (微服务项目后端代码仓库)
-## ppx - online judge
+## ppx - online judge （microservice）
 
 基于Spring Boot + Spring Cloud 微服务+ Docker (+ Vue 3 + Arco Design)的编程题目在线评测系统。
 
