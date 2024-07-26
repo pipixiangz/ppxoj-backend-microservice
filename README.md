@@ -96,6 +96,8 @@ To protect internal service interfaces, a unified inner prefix was set for inter
 ### Asynchronous Judging Operations
 To prevent prolonged execution times for judging operations, the system employs an asynchronous approach. The problem service sends the user submission ID to a RabbitMQ message queue, forwarding it via a Direct exchange to the judging queue, where the judging service consumes it and updates the submission status asynchronously. Compared to the synchronous approach, the response time was reduced from 3 seconds to 1 seconds.
 
+启动项：前端项目 + 代码沙箱 + 微服务 + Nacos + Redis + RabbitMQ
+
 
 
 
