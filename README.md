@@ -17,6 +17,8 @@ Backend: The system can compile, run, and judge the correctness of the code base
 
 - Sandbox代码沙箱：[代码沙箱](https://github.com/pipixiangz/ppxoj-code-sandbox)
 
+- 系统演示视频：[Demo Video](https://github.com/pipixiangz/ppxoj-frontend/blob/main/imgs/ppxoj_720P.mp4)
+
 ![主页图片](https://github.com/pipixiangz/ppxoj-frontend/blob/main/imgs/mainPage.jpg)
 ![浏览题目](https://github.com/pipixiangz/ppxoj-frontend/blob/main/imgs/questionView.jpg)
 ![浏览提交题目](https://github.com/pipixiangz/ppxoj-frontend/blob/main/imgs/questionSubmitView.jpg)
