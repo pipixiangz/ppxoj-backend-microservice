@@ -98,7 +98,7 @@ To prevent prolonged execution times for judging operations, the system employs 
 
 ---
 
-**启动项：前端项目 + 代码沙箱 + 微服务 + Nacos + Redis + RabbitMQ**
+**启动项：前端项目 + 代码沙箱 + 微服务 + Nacos + MuSQL + Redis + RabbitMQ**
 
 
 
