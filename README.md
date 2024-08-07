@@ -53,6 +53,7 @@ Backend: The system can compile, run, and judge the correctness of the code base
 13. 为保护内部服务接口，给接口路径统一设置 inner 前缀，并通过在网关自定义GlobalFilter（全局请求拦截器）实现对内部请求的检测和拦截，集中解决了权限校验问题。
 
 14. 为防止判题操作执行时间较长，系统选用异步的方式，在题目服务中将用户提交id发送给RabbitMQ消息队列，并通过Direct交换机转发给判题队列，由判题服务进行消费，异步更新提交状态。相比于同步，响应时长由3秒减少至1秒。
+15. 增加题目通过率显示功能，帮助用户选择题目
 
 ### System Architecture
 The system is divided into distinct modules based on functional responsibilities: the backend module handles core business logic, the judging module verifies results, and the reusable code sandbox module compiles and executes code. Each module operates independently and collaborates via API interfaces and package-based integration.
