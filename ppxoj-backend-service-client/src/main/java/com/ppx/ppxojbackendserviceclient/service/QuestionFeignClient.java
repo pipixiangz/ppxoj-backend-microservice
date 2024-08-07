@@ -13,8 +13,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import javax.servlet.http.HttpServletRequest;
-
 /**
  * 题目服务
  *
@@ -40,9 +38,25 @@ public interface QuestionFeignClient {
 
     /**
      * 根据题目ID获取题目列表
-     * @param questionSubmitUpdate
+     * @param questionSubmit
      * @return
      */
     @PostMapping("/question_submit/update")
     boolean updateById(@RequestBody QuestionSubmit questionSubmit);
+
+    /**
+     * 根据题目ID获取题目列表
+     * @param question
+     * @return
+     */
+    @PostMapping("/question/update")
+    boolean updateQuestionById(@RequestBody Question question);
+
+//    /**
+//     * 根据题目ID获取题目列表
+//     * @param question
+//     * @return
+//     */
+//    @PostMapping("/question/update")
+//    boolean updateById(@RequestBody Question question);
 }

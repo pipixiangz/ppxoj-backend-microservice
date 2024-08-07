@@ -315,6 +315,7 @@ public class QuestionController {
         // 登录才能点赞
         final User loginUser = userFeignClient.getLoginUser(request);
         long questionSubmitId = questionSubmitService.doQuestionSubmit(questionSubmitAddRequest, loginUser);
+
         return ResultUtils.success(questionSubmitId);
     }
 

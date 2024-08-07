@@ -30,6 +30,7 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.Objects;
 import java.util.concurrent.CompletableFuture;
 import java.util.stream.Collectors;
 
@@ -99,6 +100,13 @@ public class QuestionSubmitServiceImpl extends ServiceImpl<QuestionSubmitMapper,
 //        CompletableFuture.runAsync(() -> {
 //            judgeService.doJudge(questionSubmitId);
 //        });
+
+            question.setSubmitNum(question.getSubmitNum() + 1);
+//        if(Objects.equals(questionSubmit.getStatus(), QuestionSubmitStatusEnum.SUCCEED.getValue())){
+//            question.setAcceptedNum(question.getAcceptedNum() + 1);
+//        }
+        // 更新题目提交数
+        questionService.updateById(question);
         return questionSubmitId;
     }
 
